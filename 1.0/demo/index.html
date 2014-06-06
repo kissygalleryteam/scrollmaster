@@ -5,10 +5,24 @@
     <title>Scrollmaster的demo</title>
     <script src="http://g.tbcdn.cn/kissy/k/1.4.1/seed-min.js" charset="utf-8"></script>
     <link rel="stylesheet" href="http://g.tbcdn.cn/kissy/k/1.3.0/css/dpl/base-min.css">
+    <style id="jsbin-css">
+    .a {
+      width: 400px;
+      height: 1000px;
+      overflow: hidden;
+      float: left;
+    }
+
+    .b {
+      float: left;
+      display: block;
+    }
+    </style>
 </head>
 <body>
 <h2>Scrollmaster的demo</h2>
-
+  <div class="a"><img src="http://img.la/4048x1000?s=aaasdfasdfqwefqwefsvasvqfqwfsdfasvasdvqeqwfqwasdvasdgqweqwegqwgqwegergsdfbsdfbasbasdbaegqwefqsasb" alt="" class="la"></div>
+  <span class="b"></span>
 <script>
     var S = KISSY;
     if (S.Config.debug) {
@@ -25,8 +39,15 @@
         });
     }
 
-    S.use('gallery/scrollmaster/1.0/index', function (S, Scrollmaster) {
-          new Scrollmaster();
+    S.use('gallery/scrollmaster/1.0/index', function (S, SM) {
+          var $ = S.Node.all;
+          SM.init('.a');
+          SM.on("start", function(){
+            $('.b').text("start");
+          });
+          SM.on("end", function(){
+            $('.b').text("end");
+          });
     })
 </script>
 </body>
