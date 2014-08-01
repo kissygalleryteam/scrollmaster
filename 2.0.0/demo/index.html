@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Scrollmaster的demo</title>
+    <script src="http://g.tbcdn.cn/kissy/k/1.4.1/seed-min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="http://g.tbcdn.cn/kissy/k/1.3.0/css/dpl/base-min.css">
+    <style id="jsbin-css">
+    .a {
+      width: 400px;
+      height: 2.0.00px;
+      overflow: hidden;
+      float: left;
+    }
+
+    .b {
+      float: left;
+      display: block;
+    }
+    </style>
+<script>var S = KISSY;S.config({packages:[{name:"kg",path:"http://g.tbcdn.cn/kg/",charset:"utf-8",ignorePackageNameInUri:true}]});if (S.Config.debug){var srcPath = "../";S.config({packages:[{name:"kg/scrollmaster/2.0.0",path:srcPath,charset:"utf-8",ignorePackageNameInUri:true}]});}</script></head>
+<body>
+<h2>Scrollmaster的demo</h2>
+  <div class="a"><img src="http://img.la/4048x2.0.00?s=aaasdfasdfqwefqwefsvasvqfqwfsdfasvasdvqeqwfqwasdvasdgqweqwegqwgqwegergsdfbsdfbasbasdbaegqwefqsasb" alt="" class="la"></div>
+  <span class="b"></span>
+<script>
+    var S = KISSY;
+    if (S.Config.debug) {
+        var srcPath = "../../";
+        S.config({
+            packages:[
+                {
+                    name:"kg/scrollmaster",
+                    path:srcPath,
+                    charset:"utf-8",
+                    ignorePackageNameInUri:true
+                }
+            ]
+        });
+    }
+
+    S.use('kg/scrollmaster/2.0.0/index', function (S, SM) {
+          var $ = S.Node.all;
+          SM.init('.a');
+          SM.on("start", function(){
+            $('.b').text("start");
+          });
+          SM.on("end", function(){
+            $('.b').text("end");
+          });
+    })
+</script>
+</body>
+</html>
